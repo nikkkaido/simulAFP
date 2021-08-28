@@ -34,7 +34,7 @@
             </script>
             <hr>
             <p style="margin-bottom: 3px;" id="afpactual">Tu AFP es: <script>document.getElementById("afpactual").innerHTML = document.getElementById("afpactual").innerHTML+' <b>'+ sessionStorage.getItem('AFP');+"</b>"</script></p>
-            <p id="fondoactual">Estás en el fondo <script>document.getElementById("fondoactual").innerHTML = document.getElementById("fondoactual").innerHTML+' <b>'+ sessionStorage.getItem('Fondo')+"</b>, con una Rentabilidad de <b>"+(100*sessionStorage.getItem('rtaf'))+"%.</b>";</script></p>
+            <p id="fondoactual">Estás en el fondo <script>document.getElementById("fondoactual").innerHTML = document.getElementById("fondoactual").innerHTML+' <b>'+ sessionStorage.getItem('Fondo')+"</b>, con una Rentabilidad de <b>"+(100*sessionStorage.getItem('rtaf')).toFixed(2)+"%.</b>";</script></p>
             <hr>
         </div>
         
@@ -44,13 +44,16 @@
             </div>
             
             <div class="contt3">
-                <p>Saldo de Fondo Previsional:</p> <input class="sgn-form1 formatoselectt" type="text" name="saldo" placeholder="0"/>
+                <p>Saldo de Fondo Previsional:</p> <input class="sgn-form1 formatoselectt" type="number" name="saldo" placeholder="0"/>
             </div>
             <div class="contt3">
-                <p>Liquidaciones de sueldo:</p> <input class="sgn-form1 formatoselectt" type="text" name="sip" placeholder="0"/>
+                <p>Liquidaciones de sueldo:</p> <input class="sgn-form1 formatoselectt" type="number" name="sip" placeholder="0"/>
             </div>
             <div class="contt3">
-                <p>Porcentaje de cotización voluntaria (0-50%):</p> <input class="sgn-form1 formatoselectt" type="text" name="cotv" placeholder="0"/><br>
+                <p>Porcentaje de cotización voluntaria (0-50%):</p> <input class="sgn-form1 formatoselectt" type="number" name="cotv" placeholder="0"/><br>
+            </div>
+            <div class="contt3">
+                <p>Cambiar rentabilidad (0 si no se desea):</p> <input class="sgn-form1 formatoselectt" type="number" name="rtnew" placeholder="0"/><br>
             </div>
         </div>
         <div class="contt2">
@@ -75,10 +78,10 @@
             </div>
             
             <div class="contt3">
-                <p>Jubilación esperada:</p> <input class="sgn-form1 formatoselectt" type="text" name="jubilacionesperada" placeholder="0"/>
+                <p>Jubilación esperada:</p> <input class="sgn-form1 formatoselectt" type="number" name="jubilacionesperada" placeholder="0" onkeyup="CurrencyFormat(this)"/>
             </div>
             <div class="contt3">
-                <p>Rentabilidad estimada (0-15%):</p> <input class="sgn-form1 formatoselectt" type="text" name="rtaf2" placeholder="0"/>
+                <p>Rentabilidad estimada (0-15%):</p> <input class="sgn-form1 formatoselectt" type="number" name="rtaf2" placeholder="0" />
             </div>
         </div>
         <div class="contt2">
@@ -89,6 +92,7 @@
                 <div class="contt2">
                     <span id = "error3" style="color:#D96236"> </span>
                     <span id = "error4" style="color:#D96236"> </span>
+                    <span id = "error5" style="color:#D96236"> </span>
                 </div>
 
                 <div>
@@ -98,11 +102,6 @@
             <div class="contt6">
                 <p style="margin-bottom: 4px !important;">Porcentaje de Ahorro Previsional Voluntario a adicionar: <b id = "cotvresult"></b></p>
                 <p style="margin-bottom: 4px !important;">Corresponde a un monto mensual de: <b id = "apvresult"></b></p>
-            </div>
-            <div class="contt5 container">
-                <div class="row align-self-center">
-                    <input class="btn1 boton2 btn-outline-2 btn-l1 px-4 roundb" type="submit" value="Calcular con otros datos" onclick="imprimirDatos()"/>
-                </div>
             </div>
         </div>
         

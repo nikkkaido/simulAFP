@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" />
+    <title>simulAFP</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbstl nav">
+        <div class="container-fluid navdivstl"> 
+          <a class="" href="index.html">
+            <img src="images/logoafp.png" style="height: 130px;">
+          </a>
+        </div>
+    </nav>
+
+<div class="contt1">
+    <div class="contt2">
+        <h2>BIENVENIDO A simulAFP</h2>
+        <p style="margin-left: 0px;">Para comenzar ingresa tus datos.</p> 
+    </div>
+    
+    <hr>
+    <div class="">
+        <div class="contt3">
+            <p>Nombre y Apellido:</p> <input class="sgn-form1 formatoselectt" type="text" name="nombre" placeholder="Cosme Fulanito"/>
+        </div>
+        <div class="contt3">
+            <p>Sexo: </p> <select class="formatoselectt form-select sgn-form1" name="sexo" id="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            </select>
+        </div>
+        <div class="contt3">
+            <p> Fecha de nacimiento: </p> 
+            <!-- <input class="sgn-form1 formatoselectt" type="date" min="01-01-1980" name="fecha" placeholder="DD-MM-AAAA"/> -->
+            <div class="row">
+                <div class="col">
+                <select class="form-select formatoselectt sgn-form1" name="days" id="dias">
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                </div>
+                <div class="col order-5">
+                    <input class="sgn-form1 formatoselectt" name="year" placeholder="AAAA" id="year"/>
+                </div>
+                <div class="col order-1">
+                    <select class="form-select formatoselectt sgn-form1" name="month" id="month">
+                        <option value="01">enero</option>
+                        <option value="02">febrero</option>
+                        <option value="03">marzo</option>
+                        <option value="04">abril</option>
+                        <option value="05">mayo</option>
+                        <option value="06">junio</option>
+                        <option value="07">julio</option>
+                        <option value="08">agosto</option>
+                        <option value="09">septiembre</option>
+                        <option value="10">octubre</option>
+                        <option value="11">noviembre</option>
+                        <option value="12">diciembre</option>
+                    </select>
+                </div>
+            </div>
+         
+            
+             
+             
+        </div>
+        <div class="contt3">
+            <p>AFP: </p> <select class="form-select formatoselectt sgn-form1" name="AFP" id="afp">
+            <option value="CAPITAL">CAPITAL</option>
+            <option value="CUPRUM">CUPRUM</option>
+            <option value="HABITAT">HABITAT</option>
+            <option value="MODELO">MODELO</option>
+            <option value="PLANVITAL">PLANVITAL</option>
+            <option value="PROVIDA">PROVIDA</option>
+            <option value="UNO">UNO</option>
+            <option value="SISTEMA">SISTEMA</option>
+            </select> 
+        </div>
+        <div class="contt3">
+            <p>Fondo: </p> <select class="form-select formatoselectt sgn-form1" name="fondo" id="Fondo">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            </select> 
+        </div>
+    </div>
+    <center>
+    <div class="contt5 container">
+        <div class="row align-self-center">
+            <input class="boton1 btn1 btn-l1 btn-1 px-4 me-sm-3 roundb" type="submit" value="Continuar" onclick="extraerDatos()"/>
+        </div>
+
+    </div>
+    <div class="contt4">
+        <span id = "error" style="color:#D96236"> </span>
+    </div>
+    
+    </center>
+</div>
+<hr style="color:white">
+<hr>
+<footer style="font-size: 11px;" class="mt-auto text-white-50 text-center">
+    <p class="letra-foot">Desarrollado por C.G.Z., D.M.G. y M.O.C. para proyectos TICS.</p>
+</footer>
+
+</body>
+</html>
+
+

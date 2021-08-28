@@ -1,0 +1,341 @@
+/**** COLORES ****/
+/* azul #1F5A9D */
+/* verde oscuro #35848C */
+/* verde claro #9BD0D4 */
+/* naranjo oscuro #D96236 */
+/* naranjo claro #F5AB7C */
+/* azul claro #6997BF */
+
+/* FONTS */
+
+@font-face {
+    font-family: 'hk-grotesklight';
+    src: url('/fonts/hk-grotesk/WEB/HKGrotesk-Light.woff2') format('woff2'),
+         url('/fonts/hk-grotesk/WEB/HKGrotesk-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk-groteskbold';
+    src: url('/fonts/hk-grotesk/WEB/HKGrotesk-SemiBold.woff2') format('woff2'),
+         url('/fonts/hk-grotesk/WEB/HKGrotesk-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskbold_legacy_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-boldlegacyitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-boldlegacyitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_grotesklegacy_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-legacyitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-legacyitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskMdlegacyIt';
+    src: url('/fonts/hkfontsweb/hkgrotesk-mediumlegacyitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-mediumlegacyitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_grotesklight_legacy_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-lightlegacyitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-lightlegacyitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskbold_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-bolditalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskitalic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-italic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_grotesklight_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-lightitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskmedium_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-mediumitalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_grotesksemibold_italic';
+    src: url('/fonts/hkfontsweb/hkgrotesk-semibolditalic-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-semibolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_groteskbold';
+    src: url('/fonts/hkfontsweb/hkgrotesk-bold-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hk_grotesklight';
+    src: url('/fonts/hkfontsweb/hkgrotesk-light-webfont.woff2') format('woff2'),
+         url('/fonts/hkfontsweb/hkgrotesk-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**** BODY ****/
+
+/**** NAV BAR ****/
+
+.navbstl{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    background-color: white;
+}
+
+.navdivstl{
+    background-color: #1F5A9D;
+}
+
+/* PARRAFOS Y TITULOS */
+
+h2{
+    font-family: Tahoma;
+    color: #1F5A9D;
+}
+
+h3{
+    font-family: Tahoma;
+    color: #D96236;  
+}
+
+p{
+    color:rgb(40, 40, 40);
+    font-family: Tahoma;
+    margin: 10px;
+}
+
+.letra-adv{
+    font-size: 11px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.letra-foot{
+    font-size: 11px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(50, 50, 50);
+}
+
+
+
+/**** BOTONES ****/
+
+.boton2 {
+	background-color:#FBC114;
+	border-radius:15px;
+	border:1px solid #FBC114;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 5px;
+	font-weight:bold;
+	padding:6.5px 18px;
+	text-decoration:none;
+}
+
+.boton2:hover {
+	background-color: #F5AB7C;
+    color: white;
+}
+
+.boton1 {
+	background-color:#1F5A9D;
+	border-radius:15px;
+	border:1px solid #1F5A9D;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:5px;
+	font-weight:bold;
+	padding:14px 20px;
+	text-decoration:none;
+}
+.boton1:hover {
+	background-color:#6997BF;
+    color: white;
+}
+.boton1:active {
+	position:relative;
+	top:1px;
+}
+
+.btn1 {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-1 {
+    color: #fff;
+    background-color: #1F5A9D; 
+    border-color: #1F5A9D;
+}
+
+.btn-group-largo > .btn1, .btn2, .btn-l1 {
+    padding: .5rem 1rem;
+    font-size: 1.15rem;
+    border-radius: 15px;
+}
+.btn-outline-2 {
+    color: #D96236;
+    border-color: #D96236;
+}
+
+.btn2 {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.roundb{
+    border-radius: 30px;
+}
+
+/*** CONTAINER ***/
+
+.contt1{
+    padding: 15px;
+    margin-bottom: 100px;
+    position: inherit;
+    border: 1px solid #ced4da;
+    max-width: 500px;
+    margin: auto;
+}
+
+.contt2{
+    margin: 15px;
+    position: inherit;
+}
+
+.centrardiv{
+    padding: 20px;
+    position: inherit;
+    border: 1px solid #F2F2F2;
+    box-sizing: inherit;
+}
+
+.sgn-form1{
+    width: 100%;
+    padding: .375rem .75rem;
+    text-emphasis-color: #1F5A9D;
+    color: gray;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+}
+
+.formdaymonth{
+    max-width: 100px;
+}
+
+.contt3 {
+    margin: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contt4{
+    padding-top: 15px;
+    margin-left: 25px;
+}
+
+.contt5{
+    padding-top: 20px;
+}
+
+.contt6{
+    margin: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.contt7{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    position: inherit;
+
+}
+
+.formatoselectt {
+    color: #1F5A9D !important;
+    border-radius: 20px !important;
+}
+
+
+
+

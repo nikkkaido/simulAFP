@@ -1,53 +1,53 @@
 var nombre,sexo,AFP,fondo,edad,rtaf;
 var fecha = new Date();
 var rentabilidad = {
-    'CAPITAL' : {'A' : 0.0031,
-                 'B' : -0.0011,
-                 'C' : -0.0046,
-                 'D' : -0.0086,
-                 'E' : -0.0118,
+    'CAPITAL' : {'A' : 0.0649,
+                 'B' : 0.0557,
+                 'C' : 0.0767,
+                 'D' : 0.0408,
+                 'E' : 0.0398,
                 },
-    'CUPRUM' : {'A' : 0.0044,
-                'B' : 0,
-                'C' : -0.0047,
-                'D' : -0.0085,
-                'E' : -0.0110,
+    'CUPRUM' : {'A' : 0.0648,
+                'B' : 0.0557,
+                'C' : 0.0798,
+                'D' : 0.0423,
+                'E' : 0.0416,
                },
-    'HABITAT' : {'A' : 0.0053,
-                'B' : 0.0017,
-                'C' : -0.0040,
-                'D' : -0.0083,
-                'E' : -0.0105,
+    'HABITAT' : {'A' : 0.0658,
+                'B' : 0.0570,
+                'C' : 0.0799,
+                'D' : 0.0433,
+                'E' : 0.0424,
                 },
-    'MODELO' : {'A' : 0.0031,
-                'B' : -0.0011,
-                'C' : -0.0046,
-                'D' : -0.0065,
-                'E' : -0.0105,
+    'MODELO' : {'A' : 0.0630,
+                'B' : 0.0540,
+                'C' : 0.0780,
+                'D' : 0.04,
+                'E' : 0.0370,
                 },
-    'PLANVITAL' : {'A' : 0.0047,
-                'B' : -0.0003,
-                'C' : -0.0049,
-                'D' : -0.0085,
-                'E' : -0.0113,
+    'PLANVITAL' : {'A' : 0.0613,
+                'B' : 0.0533,
+                'C' : 0.0786,
+                'D' : 0.0370,
+                'E' : 0.0344,
                 },
-    'PROVIDA' : {'A' : 0.0055,
-                'B' : 0.0007,
-                'C' : -0.0047,
-                'D' : -0.0093,
-                'E' : -0.0130,
+    'PROVIDA' : {'A' : 0.0656,
+                'B' : 0.0539,
+                'C' : 0.0761,
+                'D' : 0.0385,
+                'E' : 0.0369,
                 },
-    'UNO' : {'A' : 0.0020,
-                'B' : -0.0013,
-                'C' : -0.0080,
-                'D' : -0.0090,
-                'E' : -0.0156,
+    'UNO' : {'A' : 0.0650,
+                'B' : 0.0535,
+                'C' : 0.0750,
+                'D' : 0.0380,
+                'E' : 0.037,
                 },
-      'SISTEMA' : {'A' : 0.0046,
-                'B' : 0.0003,
-                'C' : -0.0045,
-                'D' : -0.0087,
-                'E' : -0.0114,
+      'SISTEMA' : {'A' : 0.0652,
+                'B' : 0.0556,
+                'C' : 0.0782,
+                'D' : 0.0408,
+                'E' : 0.0403,
                 },
             }
 function fechaNacimiento(fecha){
@@ -92,56 +92,76 @@ function imprimirDatos(){
     console.log(sessionStorage.getItem('rtaf'));
 }
 
+function agregarPuntos(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
 function calcularFondo(binario){
     edad = parseInt(sessionStorage.getItem('Edad'));
     rtaf = parseFloat(sessionStorage.getItem('rtaf'));
+    if(parseFloat(document.getElementsByName("rtnew")[0].value) != 0 && document.getElementsByName("rtnew")[0].value != ''){
+        rtaf = parseFloat(document.getElementsByName("rtnew")[0].value/100);
+    }
     var ev = 90;
     var ej = 60;
     if(sessionStorage.getItem('Sexo') == "masculino"){ev = 85; ej = 65;}
-    var VFH = parseFloat(document.getElementsByName("saldo")[0].value);
-    var SIP = parseFloat(document.getElementsByName("sip")[0].value);
+    var VFH = parseFloat(document.getElementsByName("saldo")[0].value.replace(/\./g,''));
+    var SIP = parseFloat(document.getElementsByName("sip")[0].value.replace(/\./g,''));
     var COTV = parseFloat(document.getElementsByName("cotv")[0].value)/100;
     if(document.getElementsByName("cotv")[0].value == null || document.getElementsByName("cotv")[0].value == 0){
         COTV = 0;
     }
-    var P2 = parseFloat(document.getElementsByName("jubilacionesperada")[0].value);
+    var P2 = parseFloat(document.getElementsByName("jubilacionesperada")[0].value.replace(/\./g,''));
     var rtaf2 = parseFloat(document.getElementsByName("rtaf2")[0].value)/100;
     if(document.getElementsByName("rtaf2")[0].value == null || document.getElementsByName("rtaf2")[0].value == 0){
         rtaf2 = 0;
     }
     var COTO = 0.1;
-    var CO = COTO * SIP * ((ej-edad)*12);
+    var cotosip = COTO * SIP;
+    var CO = cotosip * ((ej-edad)*12);
     var CV = COTV * SIP * ((ej-edad)*12);
-    var FPVR = (VFH+CO+CV) + (4*(ej-edad)*(VFH+CO+CV)*rtaf);
+    var FPVR = (VFH+CO+CV) + ((ej-edad)*(VFH+CO+CV)*rtaf);
     var P = FPVR / (12*(ev - ej));
-    var P2sin = P2 - (P2*rtaf2);
-    var CV = COTV * SIP * ((ej-edad)*12);
-    var apvresult = P2sin * 12*(ev-ej) - VFH - CO; 
-    var cotvresult = 100 * parseFloat(apvresult / (SIP * ((ej-edad)*12)));
-    apvresult = SIP * cotvresult/100;
+    var FPVR2 = P2 * (12*(ev-ej));
+    var CV2 = (FPVR2 / (1+(rtaf2*(ej-edad))))-VFH-CO;
+    var cotvresult = (CV2 / (SIP*(12*(ej-edad))))*100;
+    var apvresult = CV2 /(12*(ej-edad));
     if(binario == 1){
     if(document.getElementsByName("saldo")[0].value == null || document.getElementsByName("saldo")[0].value == 0 || document.getElementsByName("sip")[0].value == null || document.getElementsByName("sip")[0].value == 0){
+        document.getElementById("error2").innerHTML = null;
         document.getElementById("error1").innerHTML = "¡Te faltan datos!";
         return false;
-    }else if(document.getElementsByName("cotv")[0].value > 50){
+    }else if(document.getElementsByName("cotv")[0].value > 50 || document.getElementsByName("cotv")[0].value < 0){
+        document.getElementById("error1").innerHTML = null;
         document.getElementById("error2").innerHTML = "¡Sobrepasaste un límite!";
         return false;
+    }else if(document.getElementsByName("sip")[0].value.replace(/\./g,'') < 150000 && document.getElementsByName("sip")[0].value.replace(/\./g,'') > 0){
+        document.getElementById("error1").innerHTML = null;
+        document.getElementById("error2").innerHTML = null;
+        document.getElementById("error2").innerHTML = "¡Liquidaciones deben ser mayor o igual a 150.000!";
+        return false;
     }
-    document.getElementById("fondoresultado").innerHTML = '$'+parseInt(FPVR);
-    document.getElementById("jubilacionresultado").innerHTML = '$'+parseInt(P);
+    document.getElementById("fondoresultado").innerHTML = '$'+agregarPuntos(parseInt(FPVR));
+    document.getElementById("jubilacionresultado").innerHTML = '$'+agregarPuntos(parseInt(P));
     document.getElementById("error1").innerHTML = null;
     document.getElementById("error2").innerHTML = null;
         }else{
         if(document.getElementsByName("saldo")[0].value == null || document.getElementsByName("saldo")[0].value == 0 || document.getElementsByName("jubilacionesperada")[0].value == null || document.getElementsByName("jubilacionesperada")[0].value == 0 || document.getElementsByName("rtaf2")[0].value == null){
             document.getElementById("error3").innerHTML = "¡Te faltan datos o debes ingresar los datos de arriba!";
             return false;
-        }else if(document.getElementsByName("cotv")[0].value > 15){
+        }else if(document.getElementsByName("rtaf2")[0].value > 15 || document.getElementsByName("rtaf2")[0].value < 0){
+            document.getElementById("error3").innerHTML = null;
             document.getElementById("error4").innerHTML = "¡Sobrepasaste un límite!";
+            document.getElementById("error5").innerHTML = null
+            return false;
+        }else if(document.getElementsByName("jubilacionesperada")[0].value.replace(/\./g,'') <= P){
+            document.getElementById("error5").innerHTML = "¡La pensión esperada debe ser mayor a la calculada anteriormente!";
             return false;
         }
         document.getElementById("cotvresult").innerHTML = parseFloat(cotvresult).toFixed(2)+'%';
-        document.getElementById("apvresult").innerHTML = '$'+parseInt(apvresult);
+        document.getElementById("apvresult").innerHTML = '$'+agregarPuntos(parseInt(apvresult));
         document.getElementById("error3").innerHTML = null;
         document.getElementById("error4").innerHTML = null;
+        document.getElementById("error5").innerHTML = null;
         }
     }

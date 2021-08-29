@@ -111,29 +111,34 @@ function calcularFondo(binario){
     if(document.getElementsByName("cotv")[0].value == null || document.getElementsByName("cotv")[0].value == 0){
         COTV = 0;
     }
-    var P2 = parseFloat(document.getElementsByName("jubilacionesperada")[0].value);
+    var P2 = parseFloat(document.getElementsByName("jubilacionesperada")[0].value.replace(/\./g,''));
     var rtaf2 = parseFloat(document.getElementsByName("rtaf2")[0].value)/100;
     if(document.getElementsByName("rtaf2")[0].value == null || document.getElementsByName("rtaf2")[0].value == 0){
         rtaf2 = 0;
     }
     var COTO = 0.1;
     var cotosip = COTO * SIP;
-    if (cotosip > 2271189){cotosip = 2271189;}
     var CO = cotosip * ((ej-edad)*12);
     var CV = COTV * SIP * ((ej-edad)*12);
     var FPVR = (VFH+CO+CV) + ((ej-edad)*(VFH+CO+CV)*rtaf);
     var P = FPVR / (12*(ev - ej));
-    var P2sin = P2 - (P2*rtaf2);
-    var CV = COTV * SIP * ((ej-edad)*12);
-    var apvresult = P2sin * 12*(ev-ej) - VFH - CO; 
-    var cotvresult = 100 * parseFloat(apvresult / (SIP * ((ej-edad)*12)));
-    apvresult = SIP * cotvresult/100;
+    var FPVR2 = P2 * (12*(ev-ej));
+    var CV2 = (FPVR2 / (1+(rtaf2*(ej-edad))))-VFH-CO;
+    var cotvresult = (CV2 / (SIP*(12*(ej-edad))))*100;
+    var apvresult = CV2 /(12*(ej-edad));
     if(binario == 1){
     if(document.getElementsByName("saldo")[0].value == null || document.getElementsByName("saldo")[0].value == 0 || document.getElementsByName("sip")[0].value == null || document.getElementsByName("sip")[0].value == 0){
+        document.getElementById("error2").innerHTML = null;
         document.getElementById("error1").innerHTML = "¡Te faltan datos!";
         return false;
     }else if(document.getElementsByName("cotv")[0].value > 50 || document.getElementsByName("cotv")[0].value < 0){
+        document.getElementById("error1").innerHTML = null;
         document.getElementById("error2").innerHTML = "¡Sobrepasaste un límite!";
+        return false;
+    }else if(document.getElementsByName("sip")[0].value.replace(/\./g,'') < 150000 && document.getElementsByName("sip")[0].value.replace(/\./g,'') > 0){
+        document.getElementById("error1").innerHTML = null;
+        document.getElementById("error2").innerHTML = null;
+        document.getElementById("error2").innerHTML = "¡Liquidaciones deben ser mayor o igual a 150.000!";
         return false;
     }
     document.getElementById("fondoresultado").innerHTML = '$'+agregarPuntos(parseInt(FPVR));
@@ -149,7 +154,7 @@ function calcularFondo(binario){
             document.getElementById("error4").innerHTML = "¡Sobrepasaste un límite!";
             document.getElementById("error5").innerHTML = null
             return false;
-        }else if(document.getElementsByName("jubilacionesperada")[0].value <= P){
+        }else if(document.getElementsByName("jubilacionesperada")[0].value.replace(/\./g,'') <= P){
             document.getElementById("error5").innerHTML = "¡La pensión esperada debe ser mayor a la calculada anteriormente!";
             return false;
         }

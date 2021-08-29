@@ -47,7 +47,7 @@
                 <p>Saldo de Fondo Previsional:</p> <input class="sgn-form1 formatoselectt" type="number" name="saldo" placeholder="0"/>
             </div>
             <div class="contt3">
-                <p>Liquidaciones de sueldo:</p> <input class="sgn-form1 formatoselectt" type="number" name="sip" placeholder="0"/>
+                <p>Liquidaciones de sueldo (mayor a 150.000):</p> <input class="sgn-form1 formatoselectt" type="number" name="sip" placeholder="0"/>
             </div>
             <div class="contt3">
                 <p>Porcentaje de cotización voluntaria (0-50%):</p> <input class="sgn-form1 formatoselectt" type="number" name="cotv" placeholder="0"/><br>
@@ -81,7 +81,8 @@
                 <p>Jubilación esperada:</p> <input class="sgn-form1 formatoselectt" type="number" name="jubilacionesperada" placeholder="0"/>
             </div>
             <div class="contt3">
-                <p>Rentabilidad estimada (0-15%):</p> <input class="sgn-form1 formatoselectt" type="number" name="rtaf2" placeholder="0" />
+                <p>Rentabilidad estimada (0-15%):</p> <input class="sgn-form1 formatoselectt" type="number" id = "test" name="rtaf2" placeholder="0" />
+                <script>document.getElementById('test').value=parseFloat(sessionStorage.getItem('rtaf'))*100;</script>
             </div>
         </div>
         <div class="contt2">
